@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Radha Madhav Show Room — Clothing Store in Nidadavolu Since 1975</title>
+<meta name="description" content="Premium Raymond suitings, shirtings & readymade garments for men, women & kids. Retail & wholesale clothing store in Nidadavolu, West Godavari. Trusted since 1975."/>
+<meta name="keywords" content="Clothing Store Nidadavolu, Raymond Suitings Nidadavolu, Readymade Garments Nidadavolu, Wholesale Garments Andhra Pradesh"/>
+<meta name="theme-color" content="#0F172A"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0F172A;--navy3:#1e3050;--gold:#D4AF37;--gold3:#fdf6dc;--burg:#7A1F1F;--bg:#F8F9FA;--text:#1F2937;--muted:#6B7280;--border:#E5E7EB;--wa:#25D366;--wa2:#1da851;--r:10px;--fh:'Cormorant Garamond',serif;--fb:'DM Sans',sans-serif}
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6}
+h1,h2,h3{font-family:var(--fh);line-height:1.12}
+.eyebrow{display:inline-block;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--burg);font-weight:600;margin-bottom:10px}
+.section-title{font-family:var(--fh);font-size:clamp(1.9rem,3.5vw,2.9rem);color:var(--navy);font-weight:700;line-height:1.1;margin-bottom:14px}
+.section-title em{color:var(--burg);font-style:italic}
+.section-lead{color:var(--muted);font-size:.95rem;line-height:1.75;max-width:540px}
+.gold-rule{width:44px;height:2.5px;background:var(--gold);margin:18px 0 24px;border-radius:2px}
+section{padding:88px 5%}
+.inner{max-width:1200px;margin:0 auto}
+.btn-wa{background:var(--wa);color:#fff;padding:13px 26px;border-radius:5px;font-size:.88rem;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s;border:none;cursor:pointer}
+.btn-wa:hover{background:var(--wa2);transform:translateY(-1px);box-shadow:0 8px 24px rgba(37,211,102,.3)}
+.btn-outline{background:transparent;color:var(--gold);border:1.5px solid rgba(212,175,55,.6);padding:13px 26px;border-radius:5px;font-size:.88rem;font-weight:500;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-outline:hover{background:rgba(212,175,55,.08)}
+#bannerBar{background:var(--navy);color:#9ca3af;text-align:center;padding:9px 16px;font-size:.78rem;letter-spacing:.06em;position:sticky;top:0;z-index:200;border-bottom:1px solid rgba(212,175,55,.2)}
+#bannerBar strong{color:var(--gold)}
+nav{background:var(--navy);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:66px;position:sticky;top:37px;z-index:190;border-bottom:1px solid rgba(212,175,55,.12)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-badge{width:38px;height:38px;border-radius:8px;background:linear-gradient(135deg,var(--gold),#b8971f);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-size:1rem;font-weight:700;color:var(--navy)}
+.logo-name{font-family:var(--fh);font-size:1.2rem;font-weight:700;color:var(--gold);line-height:1.1}
+.logo-sub{font-size:.62rem;color:#6b7280;letter-spacing:.12em;text-transform:uppercase}
+.nav-links{display:flex;gap:26px;list-style:none}
+.nav-links a{color:#9ca3af;text-decoration:none;font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-actions{display:flex;gap:10px;align-items:center}
+.nav-call{color:var(--gold);border:1px solid rgba(212,175,55,.4);padding:7px 16px;border-radius:4px;font-size:.78rem;font-weight:500;text-decoration:none;transition:all .2s}
+.nav-call:hover{background:rgba(212,175,55,.1)}
+.nav-wa{background:var(--wa);color:#fff;padding:8px 18px;border-radius:4px;font-size:.78rem;font-weight:600;text-decoration:none;display:flex;align-items:center;gap:6px;transition:background .2s}
+.nav-wa:hover{background:var(--wa2)}
+.nav-admin-link{color:#4b5563;text-decoration:none;font-size:.7rem;border:1px solid rgba(255,255,255,.08);padding:6px 12px;border-radius:4px;transition:all .2s}
+.nav-admin-link:hover{color:#9ca3af;border-color:rgba(255,255,255,.2)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{width:22px;height:2px;background:var(--gold);display:block}
+.mob-menu{display:none;position:fixed;inset:0;background:var(--navy);z-index:400;flex-direction:column;align-items:center;justify-content:center;gap:28px}
+.mob-menu.open{display:flex}
+.mob-menu a{color:var(--gold);text-decoration:none;font-family:var(--fh);font-size:2rem;font-weight:600}
+.mob-close{position:absolute;top:18px;right:22px;background:none;border:none;color:#9ca3af;font-size:1.6rem;cursor:pointer}
+.hero{min-height:92vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;background:var(--navy);overflow:hidden;padding:0}
+.hero-left{padding:80px 5% 80px 8%;display:flex;flex-direction:column}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(212,175,55,.35);padding:5px 14px;border-radius:2px;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;width:fit-content}
+.hero h1{font-family:var(--fh);font-size:clamp(2.4rem,4.5vw,4rem);color:#fff;font-weight:700;line-height:1.08;margin-bottom:20px}
+.hero h1 em{color:var(--gold);font-style:italic;display:block}
+.hero-sub{color:#9ca3af;font-size:.96rem;line-height:1.75;margin-bottom:36px;max-width:460px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
+.trust-pills{display:flex;gap:10px;flex-wrap:wrap}
+.trust-pill{background:rgba(255,255,255,.05);border:1px solid rgba(212,175,55,.2);color:#d1d5db;font-size:.73rem;padding:5px 13px;border-radius:20px;letter-spacing:.04em}
+.hero-right{height:100%;position:relative;overflow:hidden;min-height:560px}
+.hero-right img{width:100%;height:100%;object-fit:cover;display:block}
+.hero-right::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(to right,var(--navy) 0%,transparent 30%)}
+.hero-stats{position:absolute;bottom:32px;left:0;right:0;z-index:2;display:flex;background:rgba(15,23,42,.75);backdrop-filter:blur(8px);border-top:1px solid rgba(212,175,55,.15)}
+.stat-cell{flex:1;padding:18px 8px;text-align:center;border-right:1px solid rgba(212,175,55,.1)}
+.stat-cell:last-child{border-right:none}
+.stat-num{font-family:var(--fh);font-size:1.8rem;font-weight:700;color:var(--gold);line-height:1}
+.stat-lbl{font-size:.65rem;color:#9ca3af;letter-spacing:.08em;text-transform:uppercase;margin-top:4px}
+.about{background:var(--navy)}
+.about .eyebrow{color:var(--gold)}
+.about .section-title{color:#fff}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:48px}
+.about-text p{color:#9ca3af;font-size:.93rem;line-height:1.85;margin-bottom:18px}
+.about-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+.about-pill{background:rgba(212,175,55,.1);border:1px solid rgba(212,175,55,.25);color:var(--gold);font-size:.74rem;padding:6px 14px;border-radius:20px;font-weight:500}
+.about-img{border-radius:var(--r);overflow:hidden;position:relative}
+.about-img img{width:100%;height:380px;object-fit:cover;display:block}
+.about-img-caption{position:absolute;bottom:16px;left:16px;right:16px;background:rgba(15,23,42,.85);backdrop-filter:blur(6px);color:#d1d5db;font-size:.75rem;padding:10px 14px;border-radius:6px;border:1px solid rgba(212,175,55,.15);text-align:center}
+.categories{background:#fff}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:18px;margin-top:44px}
+.cat-card{border:1px solid var(--border);border-radius:var(--r);overflow:hidden;text-decoration:none;display:flex;flex-direction:column;transition:all .25s;background:#fff}
+.cat-card:hover{border-color:var(--gold);transform:translateY(-4px);box-shadow:0 16px 40px rgba(15,23,42,.09)}
+.cat-img{height:160px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;font-size:3.5rem}
+.cat-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;position:absolute;inset:0}
+.cat-card:hover .cat-img img{transform:scale(1.05)}
+.cat-body{padding:18px 16px 20px;flex:1;display:flex;flex-direction:column}
+.cat-name{font-family:var(--fh);font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:5px}
+.cat-desc{font-size:.75rem;color:var(--muted);line-height:1.55;flex:1}
+.cat-cta{margin-top:14px;display:inline-flex;align-items:center;gap:6px;background:var(--wa);color:#fff;font-size:.76rem;font-weight:600;padding:8px 14px;border-radius:4px;transition:background .2s}
+.cat-card:hover .cat-cta{background:var(--wa2)}
+.why{background:#F1F4F9}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px;margin-top:44px}
+.why-card{background:#fff;border-radius:var(--r);padding:28px 24px;border-left:3px solid transparent;transition:all .25s}
+.why-card:hover{border-left-color:var(--gold);box-shadow:0 8px 32px rgba(15,23,42,.07)}
+.why-icon{font-size:1.9rem;margin-bottom:14px;display:block}
+.why-title{font-family:var(--fh);font-size:1.12rem;font-weight:700;color:var(--navy);margin-bottom:8px}
+.why-desc{font-size:.82rem;color:var(--muted);line-height:1.7}
+.pay-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+.pay-chip{background:var(--gold3);color:var(--navy);font-size:.67rem;padding:3px 9px;border-radius:20px;font-weight:500}
+.products{background:#fff}
+.products-intro{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;margin-bottom:44px}
+.prod-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+.prod-card{border:1px solid var(--border);border-radius:var(--r);overflow:hidden;transition:all .25s;background:#fff}
+.prod-card:hover{box-shadow:0 16px 48px rgba(15,23,42,.1);transform:translateY(-3px)}
+.prod-img{height:210px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;font-size:4rem}
+.prod-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s;position:absolute;inset:0}
+.prod-card:hover .prod-img img{transform:scale(1.05)}
+.prod-badge{position:absolute;top:12px;left:12px;z-index:2;background:var(--navy);color:var(--gold);font-size:.65rem;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.06em;text-transform:uppercase}
+.prod-body{padding:16px}
+.prod-cat{font-size:.67rem;color:var(--burg);letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-bottom:4px}
+.prod-name{font-family:var(--fh);font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:12px}
+.prod-wa{display:flex;align-items:center;gap:6px;background:var(--wa);color:#fff;border:none;padding:9px 16px;border-radius:4px;font-size:.78rem;font-weight:600;cursor:pointer;width:100%;justify-content:center;text-decoration:none;transition:background .2s}
+.prod-wa:hover{background:var(--wa2)}
+.wholesale{background:var(--navy);position:relative;overflow:hidden}
+.wholesale::before{content:'';position:absolute;top:-80px;right:-80px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,rgba(212,175,55,.07) 0%,transparent 70%)}
+.wholesale .eyebrow{color:var(--gold)}
+.wholesale .section-title{color:#fff}
+.ws-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-top:48px;position:relative;z-index:2}
+.ws-lead{color:#9ca3af;font-size:.95rem;line-height:1.8;margin-bottom:24px}
+.ws-benefits{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:32px}
+.ws-benefits li{display:flex;align-items:center;gap:10px;color:#d1d5db;font-size:.88rem}
+.ws-benefits li::before{content:'✦';color:var(--gold);font-size:.6rem}
+.ws-img{border-radius:var(--r);overflow:hidden}
+.ws-img img{width:100%;height:380px;object-fit:cover;display:block}
+.reviews{background:var(--bg)}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;margin-top:48px}
+.review-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:28px;position:relative;transition:box-shadow .25s}
+.review-card:hover{box-shadow:0 8px 32px rgba(15,23,42,.08)}
+.qmark{font-family:var(--fh);font-size:5rem;color:var(--gold);opacity:.2;position:absolute;top:8px;left:20px;line-height:1}
+.review-text{color:var(--text);font-size:.9rem;line-height:1.75;margin-bottom:20px;padding-top:24px}
+.review-author{display:flex;align-items:center;gap:12px}
+.author-av{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:700;color:#fff;flex-shrink:0}
+.av1{background:var(--navy)}.av2{background:var(--burg)}.av3{background:#2e7d32}.av4{background:#5d4037}.av5{background:#1565c0}
+.author-name{font-weight:600;font-size:.85rem;color:var(--navy)}
+.author-loc{font-size:.72rem;color:var(--muted)}
+.stars{color:var(--gold);font-size:.75rem;letter-spacing:2px;margin-bottom:4px}
+.visit{background:#fff}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px;align-items:start}
+.map-wrap{border-radius:var(--r);overflow:hidden;border:1px solid var(--border);height:320px}
+.map-wrap iframe{width:100%;height:100%;border:none}
+.visit-info{display:flex;flex-direction:column;gap:22px}
+.vi-block{display:flex;gap:14px}
+.vi-icon{font-size:1.3rem;flex-shrink:0;margin-top:2px}
+.vi-label{font-weight:600;font-size:.85rem;color:var(--navy);margin-bottom:4px}
+.vi-text{font-size:.83rem;color:var(--muted);line-height:1.65}
+.visit-btns{display:flex;flex-direction:column;gap:10px;margin-top:4px}
+.vbtn{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:5px;font-size:.84rem;font-weight:600;text-decoration:none;transition:all .2s;border:none;cursor:pointer}
+.vbtn-wa{background:var(--wa);color:#fff}.vbtn-wa:hover{background:var(--wa2)}
+.vbtn-call{background:var(--navy);color:#fff}.vbtn-call:hover{background:var(--navy3)}
+.vbtn-dir{background:#fff;color:var(--navy);border:1.5px solid var(--border)}.vbtn-dir:hover{border-color:var(--navy)}
+.contact{background:var(--bg)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;margin-top:48px;align-items:start}
+.contact-intro p{color:var(--muted);font-size:.92rem;line-height:1.75;margin-bottom:24px}
+.ci-row{display:flex;gap:12px;margin-bottom:16px;align-items:flex-start}
+.ci-icon{font-size:1.2rem;flex-shrink:0}
+.ci-label{font-weight:600;font-size:.83rem;color:var(--navy)}
+.ci-val{font-size:.8rem;color:var(--muted)}
+.cf{display:flex;flex-direction:column;gap:14px}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cf-field{display:flex;flex-direction:column;gap:5px}
+.cf-label{font-size:.75rem;font-weight:600;color:var(--navy);letter-spacing:.04em}
+.cf-req{color:var(--burg)}
+.cf-input,.cf-select,.cf-textarea{border:1.5px solid var(--border);border-radius:5px;padding:10px 13px;font-size:.86rem;font-family:var(--fb);color:var(--text);background:#fff;transition:border-color .2s;outline:none}
+.cf-input:focus,.cf-select:focus,.cf-textarea:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,175,55,.1)}
+.cf-textarea{height:90px;resize:vertical}
+.cf-type{display:flex;gap:10px}
+.cf-type label{display:flex;align-items:center;gap:7px;font-size:.82rem;color:var(--text);cursor:pointer}
+.cf-submit{background:var(--wa);color:#fff;border:none;padding:13px 22px;border-radius:5px;font-size:.88rem;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .2s}
+.cf-submit:hover{background:var(--wa2)}
+footer{background:var(--navy);color:#9ca3af;padding:60px 5% 20px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:40px;max-width:1200px;margin:0 auto;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer-brand .fname{font-family:var(--fh);font-size:1.4rem;font-weight:700;color:var(--gold)}
+.footer-brand .fsub{font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:#4b5563}
+.footer-brand p{font-size:.8rem;line-height:1.7;margin-top:14px}
+.footer-col h4{font-family:var(--fh);font-size:1rem;color:var(--gold);font-weight:600;margin-bottom:14px;letter-spacing:.04em}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.footer-col ul li a{text-decoration:none;color:#9ca3af;font-size:.8rem;transition:color .2s}
+.footer-col ul li a:hover{color:var(--gold)}
+.fci{display:flex;gap:8px;align-items:flex-start;margin-bottom:10px;font-size:.8rem}
+.fci a{color:#9ca3af;text-decoration:none;line-height:1.5;transition:color .2s}
+.fci a:hover{color:var(--gold)}
+.footer-bottom{max-width:1200px;margin:22px auto 0;display:flex;justify-content:space-between;align-items:center;font-size:.73rem;color:#374151;flex-wrap:wrap;gap:8px}
+.footer-admin{color:#374151;text-decoration:none;font-size:.7rem}
+.footer-admin:hover{color:#6b7280}
+.float-wa{position:fixed;bottom:88px;right:22px;z-index:300;background:var(--wa);width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);text-decoration:none;color:#fff;animation:pulse 2.5s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.4),0 0 0 0 rgba(37,211,102,.3)}50%{box-shadow:0 4px 20px rgba(37,211,102,.4),0 0 0 10px rgba(37,211,102,0)}}
+.sticky-bar{position:fixed;bottom:0;left:0;right:0;z-index:300;background:var(--navy);border-top:1px solid rgba(212,175,55,.15);padding:10px 16px;gap:10px;display:none}
+.sticky-bar a{flex:1;padding:11px 8px;border-radius:5px;font-size:.82rem;font-weight:600;text-align:center;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px}
+.sb-wa{background:var(--wa);color:#fff}
+.sb-call{background:transparent;color:var(--gold);border:1.5px solid rgba(212,175,55,.5)}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .55s ease,transform .55s ease}
+.reveal.in{opacity:1;transform:none}
+.loading-msg{text-align:center;color:var(--muted);font-size:.85rem;padding:30px}
+@media(max-width:960px){
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-right{height:340px;min-height:0}
+  .hero-left{padding:60px 5%}
+  .about-grid,.ws-grid,.visit-grid,.contact-grid{grid-template-columns:1fr;gap:36px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:28px}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .sticky-bar{display:flex}
+  .float-wa{bottom:76px}
+}
+@media(max-width:600px){
+  section{padding:60px 5%}
+  .cf-row{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .products-intro{flex-direction:column;align-items:flex-start}
+  .hero-stats{display:none}
+}
+
+/* ════════ ADMIN PANEL STYLES ════════ */
+/* ═══════════════════════════════════════════════
+   ADMIN PANEL (integrated, hidden until triggered)
+═══════════════════════════════════════════════ */
+#adminOverlay{display:none;position:fixed;inset:0;z-index:5000;background:var(--bg, #F8F9FA)}
+#adminOverlay.open{display:block}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0F172A;--navy2:#162035;--navy3:#1e3050;
+  --gold:#D4AF37;--gold2:#e8cc6a;--gold3:#fdf6dc;
+  --burg:#7A1F1F;--bg:#F8F9FA;--white:#fff;
+  --text:#1F2937;--muted:#6B7280;--border:#E5E7EB;
+  --wa:#25D366;--wa2:#1da851;--r:10px;
+  --fh:'Cormorant Garamond',serif;--fb:'DM Sans',sans-serif;
+}
+body{font-family:var(--fb);background:var(--bg);color:var(--text);line-height:1.6}
+h1,h2,h3,h4{font-family:var(--fh)}
+
+/* ── LOGIN SCREEN ── */
+#loginScreen{height:100vh;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--navy) 0%,#1a2d4a 100%);padding:20px;overflow-y:auto}
+.login-box{background:#fff;border-radius:14px;padding:44px 38px;width:100%;max-width:420px;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.login-logo{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.login-badge{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--gold),#b8971f);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-weight:700;color:var(--navy);font-size:1.2rem}
+.login-box h2{font-size:1.4rem;color:var(--navy);font-weight:700}
+.login-box .sub{font-size:.74rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.login-box p.desc{font-size:.85rem;color:var(--muted);margin:18px 0 22px;line-height:1.6}
+.fgroup{margin-bottom:16px}
+.fgroup label{font-size:.78rem;font-weight:600;color:var(--navy);display:block;margin-bottom:6px}
+.fgroup input{width:100%;border:1.5px solid var(--border);border-radius:7px;padding:11px 14px;font-size:.9rem;font-family:var(--fb);outline:none;transition:border-color .2s}
+.fgroup input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(212,175,55,.12)}
+.pwwrap{position:relative}
+.pwwrap input{padding-right:42px}
+.pwtoggle{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:.95rem;color:var(--muted)}
+.login-btn{width:100%;background:var(--navy);color:#fff;border:none;padding:13px;border-radius:7px;font-size:.92rem;font-weight:600;cursor:pointer;transition:background .2s;font-family:var(--fb)}
+.login-btn:hover{background:var(--navy3)}
+.login-btn:disabled{opacity:.6;cursor:not-allowed}
+.login-err{background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;padding:10px 14px;border-radius:7px;font-size:.82rem;margin-bottom:14px;display:none}
+.login-err.show{display:block}
+.login-foot{text-align:center;margin-top:20px;font-size:.74rem;color:#9ca3af}
+.login-foot a{color:var(--gold);text-decoration:none}
+
+/* ── ADMIN APP ── */
+#adminApp{display:none;height:100vh;flex-direction:column}
+#adminApp.show{display:flex}
+.ap-header{background:var(--navy);padding:0 24px;height:62px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;border-bottom:1px solid rgba(212,175,55,.15)}
+.ap-title{font-family:var(--fh);font-size:1.15rem;color:var(--gold);font-weight:700}
+.ap-user-tag{font-size:.76rem;color:#9ca3af;margin-left:8px}
+.dev-badge{background:rgba(212,175,55,.18);color:var(--gold);font-size:.6rem;padding:2px 8px;border-radius:10px;font-weight:700;margin-left:6px;letter-spacing:.04em}
+.ap-header-right{display:flex;gap:10px;align-items:center}
+.btn{border:none;cursor:pointer;font-family:var(--fb);border-radius:6px;font-weight:600;transition:all .2s;display:inline-flex;align-items:center;gap:6px}
+.btn-gold{background:var(--gold);color:var(--navy);padding:8px 16px;font-size:.8rem}
+.btn-gold:hover{background:var(--gold2)}
+.btn-navy{background:var(--navy);color:#fff;padding:9px 18px;font-size:.84rem}
+.btn-navy:hover{background:var(--navy3)}
+.btn-danger{background:#fee2e2;color:#991b1b;padding:8px 16px;font-size:.8rem}
+.btn-danger:hover{background:#fecaca}
+.btn-sm{padding:5px 11px;font-size:.72rem}
+
+.ap-body{display:flex;flex:1;overflow:hidden}
+.ap-sidebar{width:230px;background:var(--navy2);flex-shrink:0;overflow-y:auto;border-right:1px solid rgba(255,255,255,.06)}
+.ap-nav-item{padding:13px 22px;color:#9ca3af;font-size:.84rem;cursor:pointer;display:flex;align-items:center;gap:10px;border-left:3px solid transparent;transition:all .2s}
+.ap-nav-item:hover{background:rgba(255,255,255,.04);color:#fff}
+.ap-nav-item.active{background:rgba(212,175,55,.08);color:var(--gold);border-left-color:var(--gold)}
+.ap-sep{height:1px;background:rgba(255,255,255,.07);margin:8px 22px}
+.role-hidden{display:none!important}
+
+.ap-content{flex:1;overflow-y:auto;padding:30px}
+.ap-section{display:none}
+.ap-section.active{display:block}
+.ap-section h3{font-size:1.5rem;color:var(--navy);margin-bottom:6px}
+.ap-section .subtitle{font-size:.85rem;color:var(--muted);margin-bottom:24px}
+
+.ap-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:24px;margin-bottom:20px}
+.ap-card h4{font-size:1.05rem;color:var(--navy);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.field{margin-bottom:14px}
+.field label{font-size:.76rem;font-weight:600;color:var(--navy);display:block;margin-bottom:5px}
+.field .req{color:var(--burg)}
+.input,.select,.textarea{width:100%;border:1.5px solid var(--border);border-radius:6px;padding:9px 13px;font-size:.85rem;font-family:var(--fb);outline:none;transition:border-color .2s;color:var(--text);background:#fff}
+.input:focus,.select:focus,.textarea:focus{border-color:var(--gold)}
+.textarea{min-height:80px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.hint{font-size:.74rem;color:var(--muted);margin-top:5px;line-height:1.5}
+
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;margin-bottom:28px}
+.stat-box{border-radius:9px;padding:18px}
+.stat-box .l{font-size:.78rem;font-weight:600;margin-bottom:6px}
+.stat-box .v{font-family:var(--fh);font-size:1.7rem;font-weight:700}
+
+.list-row{background:#f9fafb;border:1px solid var(--border);border-radius:8px;padding:13px 16px;display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.list-icon{font-size:1.4rem;flex-shrink:0}
+.list-info{flex:1;min-width:0}
+.list-name{font-weight:600;font-size:.86rem;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.list-sub{font-size:.73rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tag{font-size:.65rem;padding:2px 9px;border-radius:10px;font-weight:700;flex-shrink:0}
+.tag-on{background:#d1fae5;color:#065f46}
+.tag-off{background:#fee2e2;color:#991b1b}
+.tag-dev{background:rgba(212,175,55,.2);color:#92400e}
+.tag-admin{background:#dbeafe;color:#1e40af}
+.list-actions{display:flex;gap:6px;flex-shrink:0}
+.pill-btn{border:none;cursor:pointer;padding:6px 12px;border-radius:5px;font-size:.72rem;font-weight:600;font-family:var(--fb)}
+.pb-show{background:#d1fae5;color:#065f46}.pb-show:hover{background:#a7f3d0}
+.pb-hide{background:#fee2e2;color:#991b1b}.pb-hide:hover{background:#fecaca}
+.pb-edit{background:#dbeafe;color:#1e40af}.pb-edit:hover{background:#bfdbfe}
+.pb-del{background:#fee2e2;color:#991b1b}.pb-del:hover{background:#fecaca}
+
+.notice{padding:10px 14px;border-radius:7px;font-size:.82rem;margin-bottom:16px;display:none}
+.notice.show{display:block}
+.notice-ok{background:#d1fae5;border:1px solid #6ee7b7;color:#065f46}
+.notice-err{background:#fef2f2;border:1px solid #fca5a5;color:#dc2626}
+
+.empty-msg{color:var(--muted);font-size:.85rem;padding:20px;text-align:center}
+
+/* ── MODAL ── */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(3px);z-index:1000;display:none;align-items:center;justify-content:center;padding:20px}
+.modal-bg.open{display:flex}
+.modal-box{background:#fff;border-radius:12px;padding:28px;width:100%;max-width:520px;max-height:88vh;overflow-y:auto;position:relative}
+.modal-box h4{font-size:1.25rem;color:var(--navy);margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.modal-x{position:absolute;top:14px;right:18px;background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--muted)}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:18px;padding-top:16px;border-top:1px solid var(--border)}
+.btn-cancel{background:#fff;border:1.5px solid var(--border);color:var(--navy);padding:9px 18px;font-size:.84rem}
+.btn-cancel:hover{border-color:var(--muted)}
+
+.color-input{height:36px;width:70px;border:1.5px solid var(--border);border-radius:6px;cursor:pointer;padding:2px}
+
+.dev-note{background:#fef9ec;border:1px solid #fde68a;border-radius:9px;padding:16px 18px;font-size:.82rem;color:#92400e;line-height:1.7;margin-bottom:16px}
+.dev-note code{background:rgba(0,0,0,.06);padding:1px 6px;border-radius:4px;font-size:.78em}
+
+@media(max-width:860px){
+  .ap-sidebar{width:60px}
+  .ap-nav-item span.label{display:none}
+  .stats-grid{grid-template-columns:repeat(2,1fr)}
+  .row2{grid-template-columns:1fr}
+}
+
+</style>
+</head>
+<body>
+
+<div id="bannerBar">✦ &nbsp;<strong id="bannerText">Loading…</strong>&nbsp; ✦</div>
+
+<nav id="top">
+  <a class="logo" href="#top">
+    <div class="logo-badge">RM</div>
+    <div><div class="logo-name">Radha Madhav <span style="font-weight:400;color:#9ca3af;font-size:.9rem">Show Room</span></div><div class="logo-sub">Est. 1975 · Nidadavolu</div></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li><li><a href="#categories">Collections</a></li>
+    <li><a href="#products">Showcase</a></li><li><a href="#wholesale">Wholesale</a></li>
+    <li><a href="#reviews">Reviews</a></li><li><a href="#visit">Visit</a></li><li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <a id="navCallBtn" href="tel:" class="nav-call">📞 Call</a>
+    <a href="#" class="nav-wa" onclick="wa(event,'Hi! I\'d like to know about your latest collection.')">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      WhatsApp
+    </a>
+    <button class="hamburger" onclick="document.getElementById('mob').classList.add('open');document.body.style.overflow='hidden'"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mob-menu" id="mob">
+  <button class="mob-close" onclick="document.getElementById('mob').classList.remove('open');document.body.style.overflow=''">✕</button>
+  <a href="#about" onclick="document.getElementById('mob').classList.remove('open')">About</a>
+  <a href="#categories" onclick="document.getElementById('mob').classList.remove('open')">Collections</a>
+  <a href="#products" onclick="document.getElementById('mob').classList.remove('open')">Showcase</a>
+  <a href="#wholesale" onclick="document.getElementById('mob').classList.remove('open')">Wholesale</a>
+  <a href="#reviews" onclick="document.getElementById('mob').classList.remove('open')">Reviews</a>
+  <a href="#visit" onclick="document.getElementById('mob').classList.remove('open')">Visit</a>
+  <a href="#contact" onclick="document.getElementById('mob').classList.remove('open')">Contact</a>
+</div>
+
+<section class="hero" id="home" style="padding:0">
+  <div class="hero-left">
+    <div class="hero-tag">Heritage Retailer · Est. 1975</div>
+    <h1>Trusted Clothing<br>Destination<em>Since 1975</em></h1>
+    <p class="hero-sub">Premium Raymond Suitings, Shirtings, Readymade Garments &amp; Wholesale Fabrics in Nidadavolu. Five decades of quality, trust &amp; style — for every family, every occasion.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn-wa" onclick="wa(event,'Hi Radha Madhav Show Room, I\'d like to shop with you. Please share your latest collection.')">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Shop via WhatsApp
+      </a>
+      <a id="heroCallBtn" href="tel:" class="btn-outline">📞 Call Now</a>
+    </div>
+    <div class="trust-pills">
+      <span class="trust-pill">Established 1975</span><span class="trust-pill">50+ Years Experience</span>
+      <span class="trust-pill">Wholesale &amp; Retail</span><span class="trust-pill">Premium Brands</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://clothingshops.lovable.app/assets/hero-showroom-hYrZQ0cV.jpg" alt="Radha Madhav Show Room" loading="eager"/>
+    <div class="hero-stats">
+      <div class="stat-cell"><div class="stat-num" data-target="50" data-suffix="+">0+</div><div class="stat-lbl">Years of Trust</div></div>
+      <div class="stat-cell"><div class="stat-num" data-target="10000" data-suffix="+">0+</div><div class="stat-lbl">Happy Customers</div></div>
+      <div class="stat-cell"><div class="stat-num" data-target="500" data-suffix="+">0+</div><div class="stat-lbl">Fabric Designs</div></div>
+      <div class="stat-cell"><div class="stat-num">100%</div><div class="stat-lbl">Quality Assured</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about"><div class="inner">
+  <span class="eyebrow">Our Heritage</span>
+  <h2 class="section-title">A Legacy of Style &amp; Trust</h2>
+  <div class="gold-rule" style="background:var(--gold)"></div>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>Radha Madhav Show Room has been serving generations of customers since 1975. From premium Raymond fabrics to affordable readymade garments, our showroom has become the trusted destination for families, professionals, retailers, and wholesale buyers across the region.</p>
+      <p>Five decades on, our promise remains the same — quality fabrics, fair prices, and personal service that keeps families coming back, generation after generation.</p>
+      <div class="about-pills">
+        <span class="about-pill">50+ Years Experience</span><span class="about-pill">Thousands of Happy Customers</span>
+        <span class="about-pill">Retail &amp; Wholesale Supply</span><span class="about-pill">Quality Assured Products</span>
+      </div>
+    </div>
+    <div class="about-img reveal">
+      <img src="https://clothingshops.lovable.app/assets/hero-showroom-hYrZQ0cV.jpg" alt="Inside our showroom" loading="lazy"/>
+      <div class="about-img-caption">Five decades of trust in Nidadavolu</div>
+    </div>
+  </div>
+</div></section>
+
+<section class="categories" id="categories"><div class="inner">
+  <span class="eyebrow">Featured Collections</span>
+  <h2 class="section-title">Curated for <em>Every Occasion</em></h2>
+  <div class="gold-rule"></div>
+  <p class="section-lead">From classic Raymond suitings to vibrant festive wear and bulk garment stock — explore the full range.</p>
+  <div class="cat-grid" id="catGrid" style="margin-top:44px"><p class="loading-msg">Loading collections…</p></div>
+</div></section>
+
+<section class="why" id="why"><div class="inner">
+  <span class="eyebrow">Why Choose Us</span>
+  <h2 class="section-title">Six Reasons Families <em>Choose Us</em></h2>
+  <div class="gold-rule"></div>
+  <div class="why-grid">
+    <div class="why-card reveal"><span class="why-icon">🏛️</span><div class="why-title">Established Since 1975</div><p class="why-desc">Serving generations of families with unwavering trust.</p></div>
+    <div class="why-card reveal"><span class="why-icon">🧶</span><div class="why-title">Premium Fabrics</div><p class="why-desc">Authentic Raymond suitings &amp; finest shirtings in stock.</p></div>
+    <div class="why-card reveal"><span class="why-icon">🏪</span><div class="why-title">Retail &amp; Wholesale</div><p class="why-desc">Perfect for individual shoppers and bulk retailers alike.</p></div>
+    <div class="why-card reveal"><span class="why-icon">💳</span><div class="why-title">Easy Payments</div><p class="why-desc">All modern payment methods accepted.</p><div class="pay-chips"><span class="pay-chip">UPI</span><span class="pay-chip">Paytm</span><span class="pay-chip">Debit/Credit Cards</span><span class="pay-chip">Cash</span></div></div>
+    <div class="why-card reveal"><span class="why-icon">🤝</span><div class="why-title">Customer-First Service</div><p class="why-desc">Friendly assistance and honest product guidance.</p></div>
+    <div class="why-card reveal"><span class="why-icon">📍</span><div class="why-title">Trusted Local Name</div><p class="why-desc">A recognised heritage brand of Nidadavolu.</p></div>
+  </div>
+</div></section>
+
+<section class="products" id="products"><div class="inner">
+  <div class="products-intro">
+    <div><span class="eyebrow">Product Showcase</span><h2 class="section-title" style="margin-bottom:0">A Glimpse of <em>Our Collection</em></h2></div>
+    <p style="color:var(--muted);font-size:.85rem;max-width:320px;line-height:1.6">Message us on WhatsApp for the full catalogue, fresh arrivals &amp; pricing.</p>
+  </div>
+  <div class="prod-grid" id="prodGrid"><p class="loading-msg">Loading products…</p></div>
+</div></section>
+
+<section class="wholesale" id="wholesale"><div class="inner">
+  <span class="eyebrow">For Retailers &amp; Bulk Buyers</span>
+  <h2 class="section-title">Wholesale Solutions <em>for Retailers</em></h2>
+  <div class="gold-rule" style="background:var(--gold)"></div>
+  <div class="ws-grid">
+    <div class="reveal">
+      <p class="ws-lead">Supplying garments and fabrics to retailers and bulk buyers with competitive pricing, consistent quality, and reliable stock availability — built on 50 years of textile expertise.</p>
+      <ul class="ws-benefits"><li>Bulk Discounts</li><li>Reliable Supply</li><li>Wide Product Range</li><li>Fast Response</li></ul>
+      <a href="#" class="btn-wa" onclick="wa(event,'Hi! I\'m a retailer and would like to request your wholesale pricing.')">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Request Wholesale Pricing
+      </a>
+    </div>
+    <div class="ws-img reveal"><img src="https://clothingshops.lovable.app/assets/cat-wholesale-CnuX8FHm.jpg" alt="Wholesale stock" loading="lazy"/></div>
+  </div>
+</div></section>
+
+<section class="reviews" id="reviews"><div class="inner">
+  <span class="eyebrow">What Customers Say</span>
+  <h2 class="section-title">50 Years of <em>Happy Families</em></h2>
+  <div class="gold-rule"></div>
+  <div class="reviews-grid" id="reviewsGrid"><p class="loading-msg">Loading reviews…</p></div>
+</div></section>
+
+<section class="visit" id="visit"><div class="inner">
+  <span class="eyebrow">Find Us</span>
+  <h2 class="section-title">Visit Our <em>Showroom</em></h2>
+  <div class="gold-rule"></div>
+  <div class="visit-grid">
+    <div class="map-wrap"><iframe id="mapFrame" src="" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    <div class="visit-info reveal">
+      <div class="vi-block"><div class="vi-icon">📍</div><div><div class="vi-label">Address</div><div class="vi-text" id="visitAddress">Loading…</div></div></div>
+      <div class="vi-block"><div class="vi-icon">🕐</div><div><div class="vi-label">Opening Hours</div><div class="vi-text" id="visitHours">Loading…</div></div></div>
+      <div class="vi-block"><div class="vi-icon">📞</div><div><div class="vi-label">Phone &amp; WhatsApp</div><div class="vi-text" id="visitPhone">Loading…</div></div></div>
+      <div class="visit-btns">
+        <a id="dirBtn" href="#" class="vbtn vbtn-dir" target="_blank" rel="noopener">🗺️ Directions</a>
+        <a id="visitCallBtn" href="tel:" class="vbtn vbtn-call">📞 Call Now</a>
+        <a href="#" class="vbtn vbtn-wa" onclick="wa(event,'Hi! I\'d like to visit your showroom.')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="contact" id="contact"><div class="inner">
+  <span class="eyebrow">Get in Touch</span>
+  <h2 class="section-title">Send Us Your <em>Requirement</em></h2>
+  <div class="gold-rule"></div>
+  <div class="contact-grid">
+    <div class="contact-intro reveal">
+      <p>Fill in your details — we'll receive your enquiry directly on WhatsApp and respond personally.</p>
+      <div class="ci-row"><div class="ci-icon">📱</div><div><div class="ci-label">WhatsApp</div><div class="ci-val" id="cWA">Loading…</div></div></div>
+      <div class="ci-row"><div class="ci-icon">📞</div><div><div class="ci-label">Phone</div><div class="ci-val" id="cPhone">Loading…</div></div></div>
+      <div class="ci-row"><div class="ci-icon">📍</div><div><div class="ci-label">Showroom</div><div class="ci-val" id="cAddr">Loading…</div></div></div>
+      <div class="ci-row"><div class="ci-icon">🕐</div><div><div class="ci-label">Hours</div><div class="ci-val" id="cHours">Loading…</div></div></div>
+    </div>
+    <div class="cf reveal">
+      <div class="cf-row">
+        <div class="cf-field"><label class="cf-label">Your Name <span class="cf-req">*</span></label><input type="text" class="cf-input" id="fn" placeholder="Ravi Kumar"/></div>
+        <div class="cf-field"><label class="cf-label">Mobile Number <span class="cf-req">*</span></label><input type="tel" class="cf-input" id="fp" placeholder="+91 XXXXXXXXXX"/></div>
+      </div>
+      <div class="cf-field"><label class="cf-label">Product Requirement <span class="cf-req">*</span></label><input type="text" class="cf-input" id="fq" placeholder="e.g. Raymond suitings, formal shirts, kids wear..."/></div>
+      <div class="cf-field"><label class="cf-label">Order Type</label><div class="cf-type"><label><input type="radio" name="otype" value="Retail" checked/> Retail</label><label><input type="radio" name="otype" value="Wholesale"/> Wholesale</label></div></div>
+      <div class="cf-field"><label class="cf-label">Message</label><textarea class="cf-textarea" id="fm" placeholder="Quantity, size, budget or any other details..."></textarea></div>
+      <button class="cf-submit" onclick="sendForm()">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Send Enquiry on WhatsApp
+      </button>
+    </div>
+  </div>
+</div></section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
+        <div style="width:34px;height:34px;border-radius:7px;background:linear-gradient(135deg,var(--gold),#b8971f);display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-weight:700;color:var(--navy);font-size:.9rem">RM</div>
+        <div><div class="fname">Radha Madhav <span style="color:#9ca3af;font-weight:400">Show Room</span></div><div class="fsub">Est. 1975 · Nidadavolu</div></div>
+      </div>
+      <p>A heritage clothing destination in Nidadavolu — serving style, quality and trust to families and retailers across West Godavari for over five decades.</p>
+    </div>
+    <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="#about">About</a></li><li><a href="#categories">Collections</a></li><li><a href="#products">Product Showcase</a></li><li><a href="#wholesale">Wholesale</a></li><li><a href="#reviews">Reviews</a></li><li><a href="#visit">Visit Showroom</a></li><li><a href="#contact">Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Categories</h4><ul><li><a href="#categories">Men's Collection</a></li><li><a href="#categories">Women's Collection</a></li><li><a href="#categories">Kids Wear</a></li><li><a href="#categories">Raymond Suitings</a></li><li><a href="#categories">Premium Shirtings</a></li><li><a href="#wholesale">Wholesale Garments</a></li></ul></div>
+    <div class="footer-col">
+      <h4>Visit &amp; Contact</h4>
+      <div class="fci"><span>📍</span><span id="footerAddr">Loading…</span></div>
+      <div class="fci"><span>📞</span><a id="footerPhone" href="tel:">Loading…</a></div>
+      <div class="fci"><span>📱</span><a href="#" onclick="wa(event,'Hi Radha Madhav Show Room!')">WhatsApp</a></div>
+      <div class="fci"><span>🕐</span><span id="footerHours" style="color:#6b7280;font-size:.8rem">Loading…</span></div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Radha Madhav Show Room. All rights reserved.</div>
+    <div style="display:flex;align-items:center;gap:16px">
+      <span style="font-style:italic;color:#6b7280">"Serving Style, Quality &amp; Trust Since 1975."</span>
+      <a href="#" onclick="openAdminOverlay();return false;" class="footer-admin">Admin</a>
+    </div>
+  </div>
+</footer>
+
+<a href="#" class="float-wa" onclick="wa(event,'Hi Radha Madhav Show Room, I\'d like to place an order.')">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+<div class="sticky-bar">
+  <a href="#" class="sb-wa" onclick="wa(event,'Hi Radha Madhav Show Room, I\'d like to place an order.')">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    WhatsApp Order
+  </a>
+  <a id="stickyCallBtn" href="tel:" class="sb-call">📞 Call Now</a>
+</div>
+
+<script>
+const WAS=`<svg width="13" height="13" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>`;
+
+let SETTINGS = { whatsapp_number:'916304986616', phone_number:'+916304986616', whatsapp_method:'auto' };
+
+// ── WhatsApp opener with fallback chain (fixes "blocked" reports) ──
+function wa(e, msg){
+  if(e) e.preventDefault();
+  const n = SETTINGS.whatsapp_number || '916304986616';
+  const enc = encodeURIComponent(msg || 'Hi Radha Madhav Show Room!');
+  const method = SETTINGS.whatsapp_method || 'auto';
+  if(method === 'api'){ window.open(`https://api.whatsapp.com/send?phone=${n}&text=${enc}`,'_blank'); return; }
+  if(method === 'intent'){ window.location.href = `intent://send/${n}#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end`; return; }
+  // auto / wa.me default, with fallback if popup fails
+  const w = window.open(`https://wa.me/${n}?text=${enc}`, '_blank');
+  if(!w || w.closed || typeof w.closed === 'undefined'){
+    window.open(`https://api.whatsapp.com/send?phone=${n}&text=${enc}`, '_blank');
+  }
+}
+
+function sendForm(){
+  const n=document.getElementById('fn').value.trim();
+  const p=document.getElementById('fp').value.trim();
+  const q=document.getElementById('fq').value.trim();
+  const t=document.querySelector('input[name="otype"]:checked')?.value||'Retail';
+  const m=document.getElementById('fm').value.trim();
+  if(!n||!q){alert('Please fill in your name and product requirement.');return;}
+  const txt=['Hi Radha Madhav Show Room! 🙏','',`*Name:* ${n}`,p?`*Phone:* ${p}`:'',`*Looking for:* ${q}`,`*Order Type:* ${t}`,m?`*Details:* ${m}`:'','_Sent from website_'].filter(Boolean).join('\n');
+  wa(null,txt);
+}
+
+function renderCats(rows){
+  document.getElementById('catGrid').innerHTML = rows.length ? rows.map(c=>`
+  <a href="#" class="cat-card reveal in" onclick="wa(event,${JSON.stringify(c.whatsapp_message||('Hi! I\'m interested in your '+c.name+'.'))})">
+    <div class="cat-img" style="background:${c.bg_color||'#1a2d4a'}">${c.image_url?`<img src="${c.image_url}" alt="${c.name}" loading="lazy" onerror="this.style.display='none'"/>`:''}
+      <span style="position:absolute;font-size:3rem">${c.emoji||'🧵'}</span></div>
+    <div class="cat-body"><div class="cat-name">${c.name}</div><div class="cat-desc">${c.description||''}</div>
+      <div class="cat-cta">${WAS} Enquire on WhatsApp</div></div></a>`).join('')
+  : '<p class="loading-msg">No collections available right now.</p>';
+}
+
+function renderProds(rows){
+  document.getElementById('prodGrid').innerHTML = rows.length ? rows.map(p=>`
+  <div class="prod-card reveal in">
+    <div class="prod-img" style="background:${p.bg_color||'#1a2d4a'}">${p.image_url?`<img src="${p.image_url}" alt="${p.name}" loading="lazy" onerror="this.style.display='none'"/>`:''}
+      <span style="position:absolute;font-size:3rem">${p.emoji||'👔'}</span><div class="prod-badge">${p.badge||p.category||''}</div></div>
+    <div class="prod-body"><div class="prod-cat">${p.category||''}</div><div class="prod-name">${p.name}</div>
+      <a href="#" class="prod-wa" onclick="wa(event,${JSON.stringify(p.whatsapp_message||('Hi! I\'d like to enquire about: '+p.name+'.'))})">${WAS} Enquire</a></div></div>`).join('')
+  : '<p class="loading-msg">No products available right now.</p>';
+}
+
+function renderReviews(rows){
+  document.getElementById('reviewsGrid').innerHTML = rows.length ? rows.map(r=>`
+  <div class="review-card reveal in"><div class="qmark">"</div><div class="stars">${'★'.repeat(r.rating)}</div>
+    <p class="review-text">${r.review_text}</p>
+    <div class="review-author"><div class="author-av ${r.avatar_color||'av1'}">${r.customer_name.split(' ').map(w=>w[0]).join('').slice(0,2)}</div>
+      <div><div class="author-name">${r.customer_name}</div><div class="author-loc">${r.location||''}</div></div></div></div>`).join('')
+  : '<p class="loading-msg">No reviews yet.</p>';
+}
+
+function renderSettings(s){
+  SETTINGS = s;
+  document.getElementById('bannerText').textContent = s.banner_text || '';
+  document.getElementById('visitAddress').innerHTML = (s.address||'').replace(/\n/g,'<br>');
+  document.getElementById('visitHours').textContent = s.opening_hours || '';
+  document.getElementById('visitPhone').textContent = s.phone_number || '';
+  document.getElementById('cWA').textContent = '+' + (s.whatsapp_number||'');
+  document.getElementById('cPhone').textContent = s.phone_number || '';
+  document.getElementById('cAddr').textContent = (s.address||'').replace(/\n/g,', ');
+  document.getElementById('cHours').textContent = s.opening_hours || '';
+  document.getElementById('footerAddr').textContent = (s.address||'').replace(/\n/g,', ');
+  const fp = document.getElementById('footerPhone'); fp.textContent = s.phone_number||''; fp.href = 'tel:'+(s.phone_number||'');
+  document.getElementById('footerHours').textContent = s.opening_hours || '';
+  document.getElementById('mapFrame').src = s.map_embed_url || '';
+  document.getElementById('dirBtn').href = s.directions_url || '#';
+  ['navCallBtn','heroCallBtn','visitCallBtn','stickyCallBtn'].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.href = 'tel:' + (s.phone_number||'');
+  });
+}
+
+const obs = new IntersectionObserver(entries=>{entries.forEach(e=>{
+  if(e.isIntersecting){
+    if(e.target.classList.contains('reveal')) e.target.classList.add('in');
+    if(e.target.dataset.target){
+      const tgt=parseInt(e.target.dataset.target), sfx=e.target.dataset.suffix||'';
+      let c=0; const step=tgt/(2000/16);
+      const t=setInterval(()=>{c+=step; if(c>=tgt){c=tgt;clearInterval(t);}
+        e.target.textContent=(tgt>=1000?Math.floor(c).toLocaleString('en-IN'):Math.floor(c))+sfx;},16);
+      obs.unobserve(e.target);
+    }
+  }
+});},{threshold:.15});
+document.querySelectorAll('.reveal,[data-target]').forEach(el=>obs.observe(el));
+
+// ── Load everything from Supabase ──
+async function boot(){
+  try{
+    const [{data:cats},{data:prods},{data:revs},{data:settings}] = await Promise.all([
+      supabaseClient.from('collections').select('*').eq('visible',true).order('sort_order'),
+      supabaseClient.from('products').select('*').eq('visible',true).order('sort_order'),
+      supabaseClient.from('reviews').select('*').eq('visible',true).order('sort_order'),
+      supabaseClient.from('site_settings').select('*').eq('id',1).single(),
+    ]);
+    renderCats(cats||[]);
+    renderProds(prods||[]);
+    renderReviews(revs||[]);
+    renderSettings(settings||{});
+  }catch(err){
+    console.error('Failed to load site content:', err);
+    document.getElementById('catGrid').innerHTML='<p class="loading-msg">Unable to load right now. Please refresh.</p>';
+  }
+}
+boot();
+</script>
+
+<!-- ════════════════════════════════════════════════════
+     ADMIN PANEL (hidden — opens via #admin or Admin button)
+     ════════════════════════════════════════════════════ -->
+<div id="adminOverlay">
+
+<!-- ═══════ LOGIN SCREEN ═══════ -->
+<div id="loginScreen">
+  <div class="login-box">
+    <div class="login-logo">
+      <div class="login-badge">RM</div>
+      <div><h2>Admin Panel</h2><div class="sub">Radha Madhav Show Room</div></div>
+    </div>
+    <p class="desc">Sign in to manage collections, products, reviews, WhatsApp settings and more.</p>
+    <div class="login-err" id="loginErr"></div>
+    <div class="fgroup">
+      <label>Username</label>
+      <input type="text" id="loginUser" autocomplete="username" placeholder="Enter your username"/>
+    </div>
+    <div class="fgroup">
+      <label>Password</label>
+      <div class="pwwrap">
+        <input type="password" id="loginPass" autocomplete="current-password" placeholder="Enter your password" onkeydown="if(event.key==='Enter')doLogin()"/>
+        <button class="pwtoggle" type="button" onclick="togglePw('loginPass',this)">👁</button>
+      </div>
+    </div>
+    <button class="login-btn" id="loginBtn" onclick="doLogin()">Sign In</button>
+    <div class="login-foot">← <a href="#" onclick="closeAdminOverlay();return false;">Back to website</a></div>
+  </div>
+</div>
+
+<!-- ═══════ ADMIN APP ═══════ -->
+<div id="adminApp">
+  <div class="ap-header">
+    <div><span class="ap-title">⚙ Admin Control Panel</span><span class="ap-user-tag" id="headerUserTag"></span></div>
+    <div class="ap-header-right">
+      <a href="#" onclick="closeAdminOverlay();return false;" class="btn btn-gold">👁 View Site</a>
+      <button class="btn btn-danger" onclick="doLogout()">Logout</button>
+    </div>
+  </div>
+  <div class="ap-body">
+    <div class="ap-sidebar">
+      <div class="ap-nav-item active" onclick="navTo(this,'secDash')">📊 <span class="label">Dashboard</span></div>
+      <div class="ap-nav-item" onclick="navTo(this,'secCats')">🗂 <span class="label">Collections</span></div>
+      <div class="ap-nav-item" onclick="navTo(this,'secProds')">👔 <span class="label">Products</span></div>
+      <div class="ap-nav-item" onclick="navTo(this,'secReviews')">⭐ <span class="label">Reviews</span></div>
+      <div class="ap-nav-item" onclick="navTo(this,'secSettings')">📍 <span class="label">Contact &amp; Visit</span></div>
+      <div class="ap-nav-item" onclick="navTo(this,'secWA')">💬 <span class="label">WhatsApp</span></div>
+      <div class="ap-sep"></div>
+      <div class="ap-nav-item" onclick="navTo(this,'secPassword')">🔑 <span class="label">My Password</span></div>
+      <div class="ap-nav-item manage-only" onclick="navTo(this,'secUsers')">👥 <span class="label">Manage Admins</span></div>
+    </div>
+
+    <div class="ap-content">
+
+      <!-- DASHBOARD -->
+      <div class="ap-section active" id="secDash">
+        <h3>Welcome back</h3>
+        <p class="subtitle">Here's a snapshot of your website content.</p>
+        <div class="stats-grid" id="statsGrid"></div>
+        <div class="ap-card">
+          <h4>Quick Actions</h4>
+          <div style="display:flex;flex-wrap:wrap;gap:10px">
+            <button class="btn btn-navy" onclick="document.querySelectorAll('.ap-nav-item')[1].click()">➕ Add Collection</button>
+            <button class="btn btn-navy" onclick="document.querySelectorAll('.ap-nav-item')[2].click()">➕ Add Product</button>
+            <button class="btn btn-navy" onclick="document.querySelectorAll('.ap-nav-item')[3].click()">➕ Add Review</button>
+          </div>
+        </div>
+        <div class="ap-card">
+          <h4>📌 How This Site Works</h4>
+          <p style="font-size:.83rem;color:var(--muted);line-height:1.75">
+            Every change you make here updates the live website immediately for all visitors — it's backed by a real database, not just your browser.<br><br>
+            <strong>Show/Hide:</strong> toggle any collection, product, or review without deleting it.<br>
+            <strong>WhatsApp not opening?</strong> Go to the WhatsApp tab and try a different link method.<br>
+            <strong>Forgot your password?</strong> Ask the developer account holder to reset it for you from the Manage Admins screen, or use the database directly if you are the developer.
+          </p>
+        </div>
+      </div>
+
+      <!-- COLLECTIONS -->
+      <div class="ap-section" id="secCats">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div><h3>Featured Collections</h3><p class="subtitle">Shown in the "Curated for Every Occasion" section.</p></div>
+          <button class="btn btn-gold" onclick="openCatModal()">➕ Add Collection</button>
+        </div>
+        <div class="notice notice-ok" id="catNotice"></div>
+        <div id="catList"></div>
+      </div>
+
+      <!-- PRODUCTS -->
+      <div class="ap-section" id="secProds">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div><h3>Product Showcase</h3><p class="subtitle">Shown in the "A Glimpse of Our Collection" section.</p></div>
+          <button class="btn btn-gold" onclick="openProdModal()">➕ Add Product</button>
+        </div>
+        <div class="notice notice-ok" id="prodNotice"></div>
+        <div id="prodList"></div>
+      </div>
+
+      <!-- REVIEWS -->
+      <div class="ap-section" id="secReviews">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div><h3>Customer Reviews</h3><p class="subtitle">Shown in the "50 Years of Happy Families" section.</p></div>
+          <button class="btn btn-gold" onclick="openReviewModal()">➕ Add Review</button>
+        </div>
+        <div class="notice notice-ok" id="reviewNotice"></div>
+        <div id="reviewList"></div>
+      </div>
+
+      <!-- CONTACT & VISIT -->
+      <div class="ap-section" id="secSettings">
+        <h3>Contact &amp; Visit-Us Settings</h3>
+        <p class="subtitle">Address, hours, map, banner text.</p>
+        <div class="notice notice-ok" id="settingsNotice"></div>
+        <div class="ap-card">
+          <h4>📍 Address &amp; Hours</h4>
+          <div class="field"><label>Showroom Address</label><textarea class="textarea" id="setAddress"></textarea></div>
+          <div class="row2">
+            <div class="field"><label>Opening Hours</label><input class="input" id="setHours" placeholder="Mon – Sun · 9:30 AM – 9:30 PM"/></div>
+            <div class="field"><label>Directions Link</label><input class="input" id="setDirLink" placeholder="https://www.google.com/maps/dir/..."/></div>
+          </div>
+          <div class="field"><label>Google Maps Embed URL</label><input class="input" id="setMap" placeholder="https://www.google.com/maps/embed?..."/>
+            <p class="hint">In Google Maps: Share → Embed a map → copy the src="..." URL from the iframe code.</p>
+          </div>
+          <button class="btn btn-navy" onclick="saveSettings()">💾 Save Address &amp; Hours</button>
+        </div>
+        <div class="ap-card">
+          <h4>📢 Top Banner</h4>
+          <div class="field"><label>Banner Text</label><input class="input" id="setBanner" placeholder="New Seasonal Collections Now Available!"/></div>
+          <button class="btn btn-navy" onclick="saveSettings()">💾 Save Banner</button>
+        </div>
+      </div>
+
+      <!-- WHATSAPP -->
+      <div class="ap-section" id="secWA">
+        <h3>WhatsApp &amp; Phone</h3>
+        <p class="subtitle">Controls every WhatsApp button on the site.</p>
+        <div class="notice notice-ok" id="waNotice"></div>
+        <div class="ap-card">
+          <h4>📱 Numbers</h4>
+          <p class="hint" style="margin-bottom:12px">WhatsApp number — country code, no + sign, no spaces. Example: <strong>916304986616</strong></p>
+          <div class="row2">
+            <div class="field"><label>WhatsApp Number</label><input class="input" id="setWANum" placeholder="916304986616"/></div>
+            <div class="field"><label>Phone Number (for Call buttons)</label><input class="input" id="setPhone" placeholder="+916304986616"/></div>
+          </div>
+          <div class="field">
+            <label>Link Method <span class="hint" style="display:inline">— change this if WhatsApp says blocked / won't open</span></label>
+            <select class="select" id="setWAMethod">
+              <option value="auto">Auto (tries wa.me, falls back automatically) — recommended</option>
+              <option value="wa.me">wa.me only</option>
+              <option value="api">api.whatsapp.com only</option>
+              <option value="intent">Android intent:// only</option>
+            </select>
+          </div>
+          <p class="hint">If WhatsApp reports "blocked" on a visitor's device, it is almost always one of: WhatsApp not installed, the network/firewall blocking wa.me, or a browser popup-blocker. "Auto" handles the popup-blocker case automatically by retrying with a different link format.</p>
+          <button class="btn btn-navy" style="margin-top:14px" onclick="saveWA()">💾 Save WhatsApp Settings</button>
+        </div>
+      </div>
+
+      <!-- MY PASSWORD -->
+      <div class="ap-section" id="secPassword">
+        <h3>Change My Password</h3>
+        <p class="subtitle">You must know your current password to set a new one.</p>
+        <div class="notice notice-ok" id="pwNotice"></div>
+        <div class="notice notice-err" id="pwErr"></div>
+        <div class="ap-card" style="max-width:440px">
+          <div class="field"><label>Current Password</label><div class="pwwrap"><input type="password" class="input" id="pwCur"/><button class="pwtoggle" type="button" onclick="togglePw('pwCur',this)">👁</button></div></div>
+          <div class="field"><label>New Password</label><div class="pwwrap"><input type="password" class="input" id="pwNew" placeholder="Min 6 characters"/><button class="pwtoggle" type="button" onclick="togglePw('pwNew',this)">👁</button></div></div>
+          <div class="field"><label>Confirm New Password</label><div class="pwwrap"><input type="password" class="input" id="pwConf"/><button class="pwtoggle" type="button" onclick="togglePw('pwConf',this)">👁</button></div></div>
+          <button class="btn btn-navy" onclick="changeMyPassword()">🔑 Update Password</button>
+        </div>
+      </div>
+
+      <!-- MANAGE ADMINS (developer + admin; co-admin cannot see this) -->
+      <div class="ap-section manage-only" id="secUsers">
+        <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+          <div><h3>Manage Admins <span class="dev-badge" id="manageRoleBadge">DEVELOPER</span></h3><p class="subtitle">Add or remove accounts that can log into this panel.</p></div>
+          <div style="display:flex;gap:8px">
+            <button class="btn btn-gold dev-only" onclick="openUserModal('admin')">➕ Add Admin</button>
+            <button class="btn btn-navy" onclick="openUserModal('co-admin')">➕ Add Co-Admin</button>
+          </div>
+        </div>
+        <div class="notice notice-ok" id="userNotice"></div>
+        <div class="notice notice-err" id="userErr"></div>
+        <div class="dev-note">
+          <strong>How this works:</strong> Accounts added here can log in immediately with the password you set. All three roles — developer, admin, and co-admin — have the same access to site content (collections, products, reviews, settings) and can change their own password.<br><br>
+          <strong>Admins</strong> can add and remove <strong>co-admins</strong>, but not other admins.<br>
+          <strong>Only the developer</strong> (<code id="devUsernameNote"></code>) can add or remove <strong>admins</strong>.<br>
+          The developer account itself is permanent — it cannot be removed by anyone. Only the developer account can log out of itself; nobody else can force it out.
+        </div>
+        <div id="userList"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════ MODALS ═══════ -->
+<div class="modal-bg" id="catModalBg">
+  <div class="modal-box">
+    <button class="modal-x" onclick="closeModal('catModalBg')">✕</button>
+    <h4 id="catModalTitle">Add Collection</h4>
+    <input type="hidden" id="catId"/>
+    <div class="field"><label>Collection Name <span class="req">*</span></label><input class="input" id="catName" placeholder="Men's Collection"/></div>
+    <div class="field"><label>Description</label><input class="input" id="catDesc" placeholder="Shirts · Trousers · Formal Wear"/></div>
+    <div class="field"><label>Image URL</label><input class="input" id="catImg" placeholder="https://..."/></div>
+    <div class="row2">
+      <div class="field"><label>Emoji Icon (fallback)</label><input class="input" id="catEmoji" placeholder="👔" maxlength="4"/></div>
+      <div class="field"><label>Background Color</label><input type="color" class="color-input" id="catBg" value="#1a2d4a"/></div>
+    </div>
+    <div class="field"><label>WhatsApp Message</label><input class="input" id="catWAMsg" placeholder="Hi! I'm interested in your Men's Collection."/></div>
+    <div class="field"><label>Visibility</label><select class="select" id="catVisible"><option value="true">Visible on site</option><option value="false">Hidden</option></select></div>
+    <div class="modal-actions">
+      <button class="btn btn-cancel" onclick="closeModal('catModalBg')">Cancel</button>
+      <button class="btn btn-navy" onclick="saveCat()">💾 Save</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-bg" id="prodModalBg">
+  <div class="modal-box">
+    <button class="modal-x" onclick="closeModal('prodModalBg')">✕</button>
+    <h4 id="prodModalTitle">Add Product</h4>
+    <input type="hidden" id="prodId"/>
+    <div class="field"><label>Product Name <span class="req">*</span></label><input class="input" id="prodName" placeholder="Raymond Premium Suiting"/></div>
+    <div class="row2">
+      <div class="field"><label>Category</label><input class="input" id="prodCat" placeholder="Suitings"/></div>
+      <div class="field"><label>Badge Label</label><input class="input" id="prodBadge" placeholder="Suitings"/></div>
+    </div>
+    <div class="field"><label>Image URL</label><input class="input" id="prodImg" placeholder="https://..."/></div>
+    <div class="row2">
+      <div class="field"><label>Emoji (fallback)</label><input class="input" id="prodEmoji" placeholder="🧵" maxlength="4"/></div>
+      <div class="field"><label>Background Color</label><input type="color" class="color-input" id="prodBg" value="#1a2d4a"/></div>
+    </div>
+    <div class="field"><label>WhatsApp Enquiry Message</label><input class="input" id="prodWAMsg" placeholder="Hi! I'd like to enquire about: Raymond Premium Suiting."/></div>
+    <div class="field"><label>Visibility</label><select class="select" id="prodVisible"><option value="true">Visible on site</option><option value="false">Hidden</option></select></div>
+    <div class="modal-actions">
+      <button class="btn btn-cancel" onclick="closeModal('prodModalBg')">Cancel</button>
+      <button class="btn btn-navy" onclick="saveProd()">💾 Save</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-bg" id="reviewModalBg">
+  <div class="modal-box">
+    <button class="modal-x" onclick="closeModal('reviewModalBg')">✕</button>
+    <h4 id="reviewModalTitle">Add Review</h4>
+    <input type="hidden" id="reviewId"/>
+    <div class="field"><label>Customer Name <span class="req">*</span></label><input class="input" id="reviewName" placeholder="Ravi Kumar"/></div>
+    <div class="row2">
+      <div class="field"><label>Location</label><input class="input" id="reviewLoc" placeholder="Nidadavolu, West Godavari"/></div>
+      <div class="field"><label>Rating</label><select class="select" id="reviewRating"><option value="5">★★★★★ (5)</option><option value="4">★★★★ (4)</option><option value="3">★★★ (3)</option></select></div>
+    </div>
+    <div class="field"><label>Review Text <span class="req">*</span></label><textarea class="textarea" id="reviewText"></textarea></div>
+    <div class="field"><label>Avatar Color</label><select class="select" id="reviewColor">
+      <option value="av1">Navy Blue</option><option value="av2">Burgundy</option><option value="av3">Green</option><option value="av4">Brown</option><option value="av5">Blue</option>
+    </select></div>
+    <div class="field"><label>Visibility</label><select class="select" id="reviewVisible"><option value="true">Visible on site</option><option value="false">Hidden</option></select></div>
+    <div class="modal-actions">
+      <button class="btn btn-cancel" onclick="closeModal('reviewModalBg')">Cancel</button>
+      <button class="btn btn-navy" onclick="saveReview()">💾 Save</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-bg" id="userModalBg">
+  <div class="modal-box">
+    <button class="modal-x" onclick="closeModal('userModalBg')">✕</button>
+    <h4>Add New Admin</h4>
+    <div class="field"><label>Username <span class="req">*</span></label><input class="input" id="newUserName" placeholder="e.g. staffname"/></div>
+    <div class="field"><label>Temporary Password <span class="req">*</span></label><div class="pwwrap"><input type="password" class="input" id="newUserPass" placeholder="Min 6 characters"/><button class="pwtoggle" type="button" onclick="togglePw('newUserPass',this)">👁</button></div>
+      <p class="hint">Share this password with them directly — they can change it themselves afterward from "My Password".</p>
+    </div>
+    <div class="modal-actions">
+      <button class="btn btn-cancel" onclick="closeModal('userModalBg')">Cancel</button>
+      <button class="btn btn-navy" id="userSaveBtn" onclick="saveUser()">💾 Add Admin</button>
+    </div>
+  </div>
+</div>
+
+</div><!-- /#adminOverlay -->
+
+
+<script>
+/* ═══════════════════════════════════════════════
+   SESSION (client-side only — every actual write
+   is re-verified server-side by the SQL functions,
+   so a tampered session object can't grant access)
+═══════════════════════════════════════════════ */
+let currentUser = null; // {id, username, role}
+
+function togglePw(id, btn){
+  const el = document.getElementById(id);
+  el.type = el.type === 'password' ? 'text' : 'password';
+  btn.textContent = el.type === 'password' ? '👁' : '🙈';
+}
+
+function showNotice(id, ok){
+  const el = document.getElementById(id);
+  el.classList.remove('notice-ok','notice-err');
+  el.classList.add(ok ? 'notice-ok' : 'notice-err', 'show');
+}
+function flash(id, msg){
+  const el = document.getElementById(id);
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(()=>el.classList.remove('show'), 3500);
+}
+function flashErr(id, msg){
+  const el = document.getElementById(id);
+  el.textContent = msg;
+  el.classList.add('show');
+}
+function clearErr(id){ document.getElementById(id).classList.remove('show'); }
+
+/* ═══════════════════════════════════════════════
+   LOGIN / LOGOUT
+   Calls the admin_login() Postgres function, which
+   checks the bcrypt hash server-side. The plaintext
+   password is sent over HTTPS to Supabase only —
+   it is never stored anywhere in the frontend.
+═══════════════════════════════════════════════ */
+async function doLogin(){
+  const u = document.getElementById('loginUser').value.trim();
+  const p = document.getElementById('loginPass').value;
+  const btn = document.getElementById('loginBtn');
+  const errEl = document.getElementById('loginErr');
+  errEl.classList.remove('show');
+
+  if(!u || !p){ errEl.textContent='Please enter both username and password.'; errEl.classList.add('show'); return; }
+
+  btn.disabled = true; btn.textContent = 'Signing in…';
+  try{
+    const { data, error } = await supabaseClient.rpc('admin_login', { p_username: u, p_password: p });
+    if(error) throw error;
+    if(!data || data.length === 0){
+      errEl.textContent = 'Invalid username or password.';
+      errEl.classList.add('show');
+      btn.disabled = false; btn.textContent = 'Sign In';
+      return;
+    }
+    currentUser = data[0];
+    sessionStorage.setItem('rmsr_admin_session', JSON.stringify(currentUser));
+    enterAdminApp();
+  }catch(err){
+    console.error(err);
+    errEl.textContent = 'Connection error. Check that config.js has your Supabase keys filled in.';
+    errEl.classList.add('show');
+    btn.disabled = false; btn.textContent = 'Sign In';
+  }
+}
+
+function doLogout(){
+  currentUser = null;
+  sessionStorage.removeItem('rmsr_admin_session');
+  document.getElementById('adminApp').classList.remove('show');
+  document.getElementById('loginScreen').style.display = 'flex';
+  document.getElementById('loginUser').value = '';
+  document.getElementById('loginPass').value = '';
+  document.getElementById('loginBtn').disabled = false;
+  document.getElementById('loginBtn').textContent = 'Sign In';
+  closeAdminOverlay();
+}
+
+/* ── Overlay open/close — this is what makes the admin panel
+   "integrated": it lives in the same HTML page as the storefront,
+   hidden until explicitly opened, with no separate file/URL needed. ── */
+function openAdminOverlay(){
+  document.getElementById('adminOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  if(location.hash !== '#admin') history.replaceState(null,'','#admin');
+}
+function closeAdminOverlay(){
+  document.getElementById('adminOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+  if(location.hash === '#admin') history.replaceState(null,'',location.pathname+location.search);
+}
+
+/* Entry points: a hidden link in the storefront footer, or visiting
+   yoursite.com/#admin directly. Both just reveal the same overlay —
+   the login form still gates everything inside it. */
+document.addEventListener('DOMContentLoaded', ()=>{
+  if(location.hash === '#admin') openAdminOverlay();
+});
+window.addEventListener('hashchange', ()=>{
+  if(location.hash === '#admin') openAdminOverlay();
+});
+
+function enterAdminApp(){
+  openAdminOverlay();
+  document.getElementById('loginScreen').style.display = 'none';
+  document.getElementById('adminApp').classList.add('show');
+
+  const roleBadge = currentUser.role === 'developer' ? '<span class="dev-badge">DEVELOPER</span>'
+                   : currentUser.role === 'admin' ? '<span class="tag tag-admin" style="margin-left:6px">ADMIN</span>'
+                   : '<span class="tag" style="margin-left:6px;background:#ede9fe;color:#5b21b6">CO-ADMIN</span>';
+  document.getElementById('headerUserTag').innerHTML = `— ${currentUser.username}` + roleBadge;
+
+  // .dev-only  → developer alone (e.g. "Add Admin" button)
+  // .manage-only → developer + admin (the Manage Admins screen itself; co-admin never sees it)
+  // We toggle a "role-hidden" class rather than inline styles, so it never fights with
+  // the .ap-section/.active tab-switching rules (inline styles always beat class rules,
+  // which previously made the revealed section "stick" visible behind every other tab).
+  document.querySelectorAll('.dev-only').forEach(el=>{
+    el.classList.toggle('role-hidden', currentUser.role !== 'developer');
+  });
+  document.querySelectorAll('.manage-only').forEach(el=>{
+    el.classList.toggle('role-hidden', !(currentUser.role === 'developer' || currentUser.role === 'admin'));
+  });
+
+  loadDashboard();
+  loadCats();
+  loadProds();
+  loadReviews();
+  loadSettings();
+
+  if(currentUser.role === 'developer' || currentUser.role === 'admin'){
+    loadUsers();
+    document.getElementById('devUsernameNote').textContent =
+      currentUser.role === 'developer' ? currentUser.username : '(set by the developer)';
+    document.getElementById('manageRoleBadge').textContent = currentUser.role === 'developer' ? 'DEVELOPER' : 'ADMIN';
+    document.getElementById('manageRoleBadge').className = currentUser.role === 'developer' ? 'dev-badge' : 'tag tag-admin';
+  }
+}
+
+// Restore session on page refresh (still re-validated by every RPC call's
+// own role check — sessionStorage is just convenience, not the security boundary)
+(function restoreSession(){
+  try{
+    const saved = sessionStorage.getItem('rmsr_admin_session');
+    if(saved){ currentUser = JSON.parse(saved); enterAdminApp(); }
+  }catch(e){}
+})();
+
+function navTo(el, sectionId){
+  document.querySelectorAll('.ap-nav-item').forEach(i=>i.classList.remove('active'));
+  document.querySelectorAll('.ap-section').forEach(s=>s.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById(sectionId).classList.add('active');
+}
+
+function closeModal(id){ document.getElementById(id).classList.remove('open'); }
+
+/* ═══════════════════════════════════════════════
+   DASHBOARD
+═══════════════════════════════════════════════ */
+async function loadDashboard(){
+  try{
+    const [{count:catTotal},{count:catVis}] = await Promise.all([
+      supabaseClient.from('collections').select('*',{count:'exact',head:true}),
+      supabaseClient.from('collections').select('*',{count:'exact',head:true}).eq('visible',true),
+    ]);
+    const [{count:prodTotal},{count:prodVis}] = await Promise.all([
+      supabaseClient.from('products').select('*',{count:'exact',head:true}),
+      supabaseClient.from('products').select('*',{count:'exact',head:true}).eq('visible',true),
+    ]);
+    const [{count:revTotal},{count:revVis}] = await Promise.all([
+      supabaseClient.from('reviews').select('*',{count:'exact',head:true}),
+      supabaseClient.from('reviews').select('*',{count:'exact',head:true}).eq('visible',true),
+    ]);
+    document.getElementById('statsGrid').innerHTML = [
+      ['🗂 Collections', `${catVis||0} / ${catTotal||0}`, '#dbeafe', '#1e40af'],
+      ['👔 Products', `${prodVis||0} / ${prodTotal||0}`, '#d1fae5', '#065f46'],
+      ['⭐ Reviews', `${revVis||0} / ${revTotal||0}`, '#fef9c3', '#92400e'],
+    ].map(([l,v,bg,c])=>`<div class="stat-box" style="background:${bg}"><div class="l" style="color:${c}">${l}</div><div class="v" style="color:${c}">${v}</div></div>`).join('');
+  }catch(e){ console.error(e); }
+}
+
+/* ═══════════════════════════════════════════════
+   COLLECTIONS
+═══════════════════════════════════════════════ */
+async function loadCats(){
+  const { data, error } = await supabaseClient.from('collections').select('*').order('sort_order');
+  if(error){ console.error(error); return; }
+  renderCatList(data || []);
+}
+function renderCatList(rows){
+  const el = document.getElementById('catList');
+  if(!rows.length){ el.innerHTML = '<p class="empty-msg">No collections yet — add your first one.</p>'; return; }
+  el.innerHTML = rows.map(c => `
+    <div class="list-row">
+      <div class="list-icon">${c.emoji||'🧵'}</div>
+      <div class="list-info"><div class="list-name">${esc(c.name)}</div><div class="list-sub">${esc(c.description||'')}</div></div>
+      <span class="tag ${c.visible?'tag-on':'tag-off'}">${c.visible?'Visible':'Hidden'}</span>
+      <div class="list-actions">
+        <button class="pill-btn ${c.visible?'pb-hide':'pb-show'}" onclick="toggleCat('${c.id}',${!c.visible})">${c.visible?'Hide':'Show'}</button>
+        <button class="pill-btn pb-edit" onclick='openCatModal(${JSON.stringify(c).replace(/'/g,"&#39;")})'>Edit</button>
+        <button class="pill-btn pb-del" onclick="delCat('${c.id}')">Delete</button>
+      </div>
+    </div>`).join('');
+}
+function openCatModal(c){
+  document.getElementById('catModalTitle').textContent = c ? 'Edit Collection' : 'Add Collection';
+  document.getElementById('catId').value = c ? c.id : '';
+  document.getElementById('catName').value = c ? c.name : '';
+  document.getElementById('catDesc').value = c ? (c.description||'') : '';
+  document.getElementById('catImg').value = c ? (c.image_url||'') : '';
+  document.getElementById('catEmoji').value = c ? (c.emoji||'🧵') : '🧵';
+  document.getElementById('catBg').value = c ? (c.bg_color||'#1a2d4a') : '#1a2d4a';
+  document.getElementById('catWAMsg').value = c ? (c.whatsapp_message||'') : '';
+  document.getElementById('catVisible').value = c && c.visible===false ? 'false' : 'true';
+  document.getElementById('catModalBg').classList.add('open');
+}
+async function saveCat(){
+  const name = document.getElementById('catName').value.trim();
+  if(!name){ alert('Collection name is required.'); return; }
+  const id = document.getElementById('catId').value || null;
+  const { error } = await supabaseClient.rpc('upsert_collection', {
+    p_id: id, p_name: name,
+    p_description: document.getElementById('catDesc').value.trim(),
+    p_image_url: document.getElementById('catImg').value.trim(),
+    p_emoji: document.getElementById('catEmoji').value.trim() || '🧵',
+    p_bg_color: document.getElementById('catBg').value,
+    p_whatsapp_message: document.getElementById('catWAMsg').value.trim() || `Hi! I'm interested in your ${name}.`,
+    p_visible: document.getElementById('catVisible').value === 'true',
+    p_sort_order: 0,
+  });
+  if(error){ alert('Error saving: ' + error.message); return; }
+  closeModal('catModalBg'); loadCats(); loadDashboard();
+  flash('catNotice', 'Collection saved successfully.');
+}
+async function toggleCat(id, newVal){
+  const { data } = await supabaseClient.from('collections').select('*').eq('id',id).single();
+  if(!data) return;
+  await supabaseClient.rpc('upsert_collection', {
+    p_id:id, p_name:data.name, p_description:data.description, p_image_url:data.image_url,
+    p_emoji:data.emoji, p_bg_color:data.bg_color, p_whatsapp_message:data.whatsapp_message,
+    p_visible:newVal, p_sort_order:data.sort_order,
+  });
+  loadCats(); loadDashboard();
+}
+async function delCat(id){
+  if(!confirm('Delete this collection? This cannot be undone.')) return;
+  await supabaseClient.rpc('delete_collection', { p_id: id });
+  loadCats(); loadDashboard();
+}
+
+/* ═══════════════════════════════════════════════
+   PRODUCTS
+═══════════════════════════════════════════════ */
+async function loadProds(){
+  const { data, error } = await supabaseClient.from('products').select('*').order('sort_order');
+  if(error){ console.error(error); return; }
+  renderProdList(data || []);
+}
+function renderProdList(rows){
+  const el = document.getElementById('prodList');
+  if(!rows.length){ el.innerHTML = '<p class="empty-msg">No products yet — add your first one.</p>'; return; }
+  el.innerHTML = rows.map(p => `
+    <div class="list-row">
+      <div class="list-icon">${p.emoji||'👔'}</div>
+      <div class="list-info"><div class="list-name">${esc(p.name)}</div><div class="list-sub">${esc(p.category||'')}</div></div>
+      <span class="tag ${p.visible?'tag-on':'tag-off'}">${p.visible?'Visible':'Hidden'}</span>
+      <div class="list-actions">
+        <button class="pill-btn ${p.visible?'pb-hide':'pb-show'}" onclick="toggleProd('${p.id}',${!p.visible})">${p.visible?'Hide':'Show'}</button>
+        <button class="pill-btn pb-edit" onclick='openProdModal(${JSON.stringify(p).replace(/'/g,"&#39;")})'>Edit</button>
+        <button class="pill-btn pb-del" onclick="delProd('${p.id}')">Delete</button>
+      </div>
+    </div>`).join('');
+}
+function openProdModal(p){
+  document.getElementById('prodModalTitle').textContent = p ? 'Edit Product' : 'Add Product';
+  document.getElementById('prodId').value = p ? p.id : '';
+  document.getElementById('prodName').value = p ? p.name : '';
+  document.getElementById('prodCat').value = p ? (p.category||'') : '';
+  document.getElementById('prodBadge').value = p ? (p.badge||'') : '';
+  document.getElementById('prodImg').value = p ? (p.image_url||'') : '';
+  document.getElementById('prodEmoji').value = p ? (p.emoji||'👔') : '👔';
+  document.getElementById('prodBg').value = p ? (p.bg_color||'#1a2d4a') : '#1a2d4a';
+  document.getElementById('prodWAMsg').value = p ? (p.whatsapp_message||'') : '';
+  document.getElementById('prodVisible').value = p && p.visible===false ? 'false' : 'true';
+  document.getElementById('prodModalBg').classList.add('open');
+}
+async function saveProd(){
+  const name = document.getElementById('prodName').value.trim();
+  if(!name){ alert('Product name is required.'); return; }
+  const id = document.getElementById('prodId').value || null;
+  const cat = document.getElementById('prodCat').value.trim();
+  const { error } = await supabaseClient.rpc('upsert_product', {
+    p_id: id, p_name: name, p_category: cat,
+    p_badge: document.getElementById('prodBadge').value.trim() || cat,
+    p_image_url: document.getElementById('prodImg').value.trim(),
+    p_emoji: document.getElementById('prodEmoji').value.trim() || '👔',
+    p_bg_color: document.getElementById('prodBg').value,
+    p_whatsapp_message: document.getElementById('prodWAMsg').value.trim() || `Hi! I'd like to enquire about: ${name}.`,
+    p_visible: document.getElementById('prodVisible').value === 'true',
+    p_sort_order: 0,
+  });
+  if(error){ alert('Error saving: ' + error.message); return; }
+  closeModal('prodModalBg'); loadProds(); loadDashboard();
+  flash('prodNotice', 'Product saved successfully.');
+}
+async function toggleProd(id, newVal){
+  const { data } = await supabaseClient.from('products').select('*').eq('id',id).single();
+  if(!data) return;
+  await supabaseClient.rpc('upsert_product', {
+    p_id:id, p_name:data.name, p_category:data.category, p_badge:data.badge, p_image_url:data.image_url,
+    p_emoji:data.emoji, p_bg_color:data.bg_color, p_whatsapp_message:data.whatsapp_message,
+    p_visible:newVal, p_sort_order:data.sort_order,
+  });
+  loadProds(); loadDashboard();
+}
+async function delProd(id){
+  if(!confirm('Delete this product? This cannot be undone.')) return;
+  await supabaseClient.rpc('delete_product', { p_id: id });
+  loadProds(); loadDashboard();
+}
+
+/* ═══════════════════════════════════════════════
+   REVIEWS
+═══════════════════════════════════════════════ */
+async function loadReviews(){
+  const { data, error } = await supabaseClient.from('reviews').select('*').order('sort_order');
+  if(error){ console.error(error); return; }
+  renderReviewList(data || []);
+}
+function renderReviewList(rows){
+  const el = document.getElementById('reviewList');
+  if(!rows.length){ el.innerHTML = '<p class="empty-msg">No reviews yet — add your first one.</p>'; return; }
+  el.innerHTML = rows.map(r => `
+    <div class="list-row">
+      <div class="list-icon">⭐</div>
+      <div class="list-info"><div class="list-name">${esc(r.customer_name)}</div><div class="list-sub">${esc(r.location||'')} · ${'★'.repeat(r.rating)}</div></div>
+      <span class="tag ${r.visible?'tag-on':'tag-off'}">${r.visible?'Visible':'Hidden'}</span>
+      <div class="list-actions">
+        <button class="pill-btn ${r.visible?'pb-hide':'pb-show'}" onclick="toggleReview('${r.id}',${!r.visible})">${r.visible?'Hide':'Show'}</button>
+        <button class="pill-btn pb-edit" onclick='openReviewModal(${JSON.stringify(r).replace(/'/g,"&#39;")})'>Edit</button>
+        <button class="pill-btn pb-del" onclick="delReview('${r.id}')">Delete</button>
+      </div>
+    </div>`).join('');
+}
+function openReviewModal(r){
+  document.getElementById('reviewModalTitle').textContent = r ? 'Edit Review' : 'Add Review';
+  document.getElementById('reviewId').value = r ? r.id : '';
+  document.getElementById('reviewName').value = r ? r.customer_name : '';
+  document.getElementById('reviewLoc').value = r ? (r.location||'') : '';
+  document.getElementById('reviewRating').value = r ? r.rating : 5;
+  document.getElementById('reviewText').value = r ? r.review_text : '';
+  document.getElementById('reviewColor').value = r ? (r.avatar_color||'av1') : 'av1';
+  document.getElementById('reviewVisible').value = r && r.visible===false ? 'false' : 'true';
+  document.getElementById('reviewModalBg').classList.add('open');
+}
+async function saveReview(){
+  const name = document.getElementById('reviewName').value.trim();
+  const text = document.getElementById('reviewText').value.trim();
+  if(!name || !text){ alert('Name and review text are required.'); return; }
+  const id = document.getElementById('reviewId').value || null;
+  const { error } = await supabaseClient.rpc('upsert_review', {
+    p_id: id, p_customer_name: name,
+    p_location: document.getElementById('reviewLoc').value.trim(),
+    p_rating: parseInt(document.getElementById('reviewRating').value),
+    p_review_text: text,
+    p_avatar_color: document.getElementById('reviewColor').value,
+    p_visible: document.getElementById('reviewVisible').value === 'true',
+    p_sort_order: 0,
+  });
+  if(error){ alert('Error saving: ' + error.message); return; }
+  closeModal('reviewModalBg'); loadReviews(); loadDashboard();
+  flash('reviewNotice', 'Review saved successfully.');
+}
+async function toggleReview(id, newVal){
+  const { data } = await supabaseClient.from('reviews').select('*').eq('id',id).single();
+  if(!data) return;
+  await supabaseClient.rpc('upsert_review', {
+    p_id:id, p_customer_name:data.customer_name, p_location:data.location, p_rating:data.rating,
+    p_review_text:data.review_text, p_avatar_color:data.avatar_color,
+    p_visible:newVal, p_sort_order:data.sort_order,
+  });
+  loadReviews(); loadDashboard();
+}
+async function delReview(id){
+  if(!confirm('Delete this review? This cannot be undone.')) return;
+  await supabaseClient.rpc('delete_review', { p_id: id });
+  loadReviews(); loadDashboard();
+}
+
+/* ═══════════════════════════════════════════════
+   SETTINGS (address/hours/map/banner/whatsapp)
+═══════════════════════════════════════════════ */
+let currentSettings = {};
+async function loadSettings(){
+  const { data, error } = await supabaseClient.from('site_settings').select('*').eq('id',1).single();
+  if(error){ console.error(error); return; }
+  currentSettings = data;
+  document.getElementById('setAddress').value = data.address || '';
+  document.getElementById('setHours').value = data.opening_hours || '';
+  document.getElementById('setMap').value = data.map_embed_url || '';
+  document.getElementById('setDirLink').value = data.directions_url || '';
+  document.getElementById('setBanner').value = data.banner_text || '';
+  document.getElementById('setWANum').value = data.whatsapp_number || '';
+  document.getElementById('setPhone').value = data.phone_number || '';
+  document.getElementById('setWAMethod').value = data.whatsapp_method || 'auto';
+}
+async function saveSettings(){
+  const { error } = await supabaseClient.rpc('update_settings', {
+    p_whatsapp_number: currentSettings.whatsapp_number,
+    p_phone_number: currentSettings.phone_number,
+    p_whatsapp_method: currentSettings.whatsapp_method,
+    p_address: document.getElementById('setAddress').value,
+    p_opening_hours: document.getElementById('setHours').value,
+    p_map_embed_url: document.getElementById('setMap').value,
+    p_directions_url: document.getElementById('setDirLink').value,
+    p_banner_text: document.getElementById('setBanner').value,
+  });
+  if(error){ alert('Error saving: ' + error.message); return; }
+  loadSettings();
+  flash('settingsNotice', 'Settings saved — your live site is now updated.');
+}
+async function saveWA(){
+  const waNum = document.getElementById('setWANum').value.replace(/\D/g,'');
+  const { error } = await supabaseClient.rpc('update_settings', {
+    p_whatsapp_number: waNum,
+    p_phone_number: document.getElementById('setPhone').value.trim(),
+    p_whatsapp_method: document.getElementById('setWAMethod').value,
+    p_address: currentSettings.address,
+    p_opening_hours: currentSettings.opening_hours,
+    p_map_embed_url: currentSettings.map_embed_url,
+    p_directions_url: currentSettings.directions_url,
+    p_banner_text: currentSettings.banner_text,
+  });
+  if(error){ alert('Error saving: ' + error.message); return; }
+  loadSettings(); loadDashboard();
+  flash('waNotice', 'WhatsApp settings saved — your live site is now updated.');
+}
+
+/* ═══════════════════════════════════════════════
+   MY PASSWORD
+═══════════════════════════════════════════════ */
+async function changeMyPassword(){
+  clearErr('pwErr');
+  const cur = document.getElementById('pwCur').value;
+  const nw = document.getElementById('pwNew').value;
+  const cf = document.getElementById('pwConf').value;
+  if(nw.length < 6){ flashErr('pwErr','New password must be at least 6 characters.'); return; }
+  if(nw !== cf){ flashErr('pwErr','New passwords do not match.'); return; }
+
+  const { data, error } = await supabaseClient.rpc('change_password', {
+    p_username: currentUser.username, p_current_password: cur, p_new_password: nw
+  });
+  if(error){ flashErr('pwErr', error.message.includes('incorrect') ? 'Current password is incorrect.' : error.message); return; }
+
+  document.getElementById('pwCur').value = '';
+  document.getElementById('pwNew').value = '';
+  document.getElementById('pwConf').value = '';
+  flash('pwNotice', 'Password updated successfully. Use your new password next time you log in.');
+}
+
+/* ═══════════════════════════════════════════════
+   MANAGE ADMINS (developer only — also enforced
+   server-side inside add_admin/remove_admin)
+═══════════════════════════════════════════════ */
+async function loadUsers(){
+  const { data, error } = await supabaseClient.rpc('list_admins');
+  if(error){ console.error(error); return; }
+  renderUserList(data || []);
+}
+
+function roleTag(role){
+  if(role === 'developer') return '<span class="tag tag-dev">DEVELOPER</span>';
+  if(role === 'admin') return '<span class="tag tag-admin">ADMIN</span>';
+  return '<span class="tag" style="background:#ede9fe;color:#5b21b6">CO-ADMIN</span>';
+}
+
+// Who can remove whom, mirrors the server-side checks in remove_admin / remove_coadmin:
+//   developer → can remove 'admin' or 'co-admin' (never 'developer')
+//   admin     → can remove 'co-admin' only
+//   co-admin  → cannot remove anyone (never sees this screen at all)
+function canRemove(targetRole){
+  if(targetRole === 'developer') return false;
+  if(currentUser.role === 'developer') return true;
+  if(currentUser.role === 'admin') return targetRole === 'co-admin';
+  return false;
+}
+
+function renderUserList(rows){
+  const el = document.getElementById('userList');
+  el.innerHTML = rows.map(u => `
+    <div class="list-row">
+      <div class="list-icon">👤</div>
+      <div class="list-info">
+        <div class="list-name">${esc(u.username)} ${roleTag(u.role)}</div>
+        <div class="list-sub">Added ${new Date(u.created_at).toLocaleDateString('en-IN')}</div>
+      </div>
+      ${canRemove(u.role)
+        ? `<button class="pill-btn pb-del" onclick="delUser('${esc(u.username)}','${u.role}')">Remove</button>`
+        : `<span class="hint">${u.role==='developer' ? 'Protected — cannot be removed' : 'Not removable by you'}</span>`}
+    </div>`).join('');
+}
+
+let pendingNewUserRole = 'co-admin';
+function openUserModal(role){
+  pendingNewUserRole = role || 'co-admin';
+  document.getElementById('newUserName').value = '';
+  document.getElementById('newUserPass').value = '';
+  clearErr('userErr');
+  const titleEl = document.querySelector('#userModalBg h4');
+  if(titleEl) titleEl.textContent = pendingNewUserRole === 'admin' ? 'Add New Admin' : 'Add New Co-Admin';
+  const saveBtn = document.getElementById('userSaveBtn');
+  if(saveBtn) saveBtn.textContent = pendingNewUserRole === 'admin' ? '💾 Add Admin' : '💾 Add Co-Admin';
+  document.getElementById('userModalBg').classList.add('open');
+}
+
+async function saveUser(){
+  clearErr('userErr');
+  const u = document.getElementById('newUserName').value.trim();
+  const p = document.getElementById('newUserPass').value;
+  if(!u){ flashErr('userErr','Username is required.'); return; }
+  if(p.length < 6){ flashErr('userErr','Password must be at least 6 characters.'); return; }
+
+  const rpcName = pendingNewUserRole === 'admin' ? 'add_admin' : 'add_coadmin';
+  const { error } = await supabaseClient.rpc(rpcName, {
+    p_requesting_username: currentUser.username, p_new_username: u, p_new_password: p
+  });
+  if(error){ flashErr('userErr', error.message); return; }
+  closeModal('userModalBg'); loadUsers();
+  const label = pendingNewUserRole === 'admin' ? 'Admin' : 'Co-admin';
+  flash('userNotice', `${label} "${u}" added. Share the password with them directly.`);
+}
+
+async function delUser(username, role){
+  const label = role === 'admin' ? 'admin' : 'co-admin';
+  if(!confirm(`Remove ${label} "${username}"? They will no longer be able to log in.`)) return;
+  const rpcName = role === 'admin' ? 'remove_admin' : 'remove_coadmin';
+  const { error } = await supabaseClient.rpc(rpcName, {
+    p_requesting_username: currentUser.username, p_target_username: username
+  });
+  if(error){ alert(error.message); return; }
+  loadUsers();
+}
+
+/* ── tiny HTML-escape helper for safe rendering ── */
+function esc(s){
+  if(s===null||s===undefined) return '';
+  return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+
+</script>
+</body>
+</html>
